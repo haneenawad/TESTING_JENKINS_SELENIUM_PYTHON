@@ -13,17 +13,23 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+
 
 @pytest.fixture()
 def driver():
-
+    chrome_options = ChromeOptions()
     dc = {
         "browserName": "chrome",
         "platformName": "Windows 10"
     }
 
     # selenium grid standAlone
+    # chrome_options.add_argument("--headless")  # browser doesnt open when run the test
+    # chrome_options.add_argument("--disable-gpu")  # kartes msa5
     driver = webdriver.Remote("http://localhost:4444",dc)
+
+    #123
 
     yield driver
     driver.close()
