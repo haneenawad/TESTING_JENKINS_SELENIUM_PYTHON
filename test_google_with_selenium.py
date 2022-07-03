@@ -37,27 +37,28 @@ def driver():
 def test_google_page_title(driver):
     driver.get('https://www.google.com')
     title = driver.title
+    driver.save_screenshot("google.png")
     assert title == str.title("google")
 
-def test_youtube_page_title(driver):
-    driver.get('https://www.youtube.com')
-    title = driver.title
-    assert title == "Home - YouTube"
-
-def test_addition_of_2_and_5_simple(driver):
-    driver.get('https://www.google.com')
-    # css_selector, xpath
-    search_field = driver.find_element(By.NAME, "q")
-    search_field.click()
-    search_field.send_keys("2 + 5")
-    search_field.send_keys(Keys.ENTER)
-
-    ans_selector = "#cwos"
-
-    # WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR,ans_selector)))
-    # actual_field = driver.find_element(By.CSS_SELECTOR,ans_selector)
-
-    actual_field = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ans_selector)))
-
-    assert actual_field.text == str(7)
+# def test_youtube_page_title(driver):
+#     driver.get('https://www.youtube.com')
+#     title = driver.title
+#     assert title == "Home - YouTube"
+#
+# def test_addition_of_2_and_5_simple(driver):
+#     driver.get('https://www.google.com')
+#     # css_selector, xpath
+#     search_field = driver.find_element(By.NAME, "q")
+#     search_field.click()
+#     search_field.send_keys("2 + 5")
+#     search_field.send_keys(Keys.ENTER)
+#
+#     ans_selector = "#cwos"
+#
+#     # WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CSS_SELECTOR,ans_selector)))
+#     # actual_field = driver.find_element(By.CSS_SELECTOR,ans_selector)
+#
+#     actual_field = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ans_selector)))
+#
+#     assert actual_field.text == str(7)
 
