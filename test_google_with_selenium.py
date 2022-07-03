@@ -29,7 +29,7 @@ def driver():
     # chrome_options.add_argument("--disable-gpu")  # kartes msa5
     driver = webdriver.Remote("http://localhost:4444",dc)
 
-    #1234
+    #12345
 
     yield driver
     driver.close()
