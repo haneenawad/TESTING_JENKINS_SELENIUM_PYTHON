@@ -83,5 +83,8 @@ def driver():
 def test_title(driver):
     driver.get("https://www.google.com/")
     title = driver.title
-    driver.save_screenshot("google.png")
+    # driver.save_screenshot("google.png")
     assert title == "Google"
+
+
+#1
