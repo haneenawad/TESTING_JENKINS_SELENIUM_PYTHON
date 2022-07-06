@@ -99,3 +99,5 @@ def test_flask_stub_page_response_text(driver):
 def test_flask_stub_page_response_status(driver):
     response = requests.get("http://localhost:5000/stub")
     assert response.status_code == 200
+
+#1
